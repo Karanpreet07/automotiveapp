@@ -1,27 +1,43 @@
-class VehicleModel {
-  final String colour;
-  final String fuelType;
-  final String registrationNumber;
-  final int engineCapacity;
-  final int yearOfManufacture;
+import 'dart:convert';
 
-  final String make;
+List<VehicleModel> vehicleFromJson(String str) => List<VehicleModel>.from(
+    json.decode(str).map((x) => VehicleModel.fromJson(x)));
+
+String vehicleToJson(List<VehicleModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class VehicleModel {
+  final String MakeModel;
+  final String Colour;
+  final String FuelType;
+  final String Vrm;
+
+  final String YearOfManufacture;
+  final String Make;
 
   VehicleModel(
-      {this.colour,
-      this.fuelType,
-      this.registrationNumber,
-      this.engineCapacity,
-      this.yearOfManufacture,
-      this.make});
+      {this.MakeModel,
+      this.Colour,
+      this.FuelType,
+      this.Vrm,
+      this.YearOfManufacture,
+      this.Make});
 
-  factory VehicleModel.fromJson(Map<String, dynamic> json) {
-    return VehicleModel(
-        colour: json["colour"],
-        make: json["make"],
-        fuelType: json["fuelType"],
-        registrationNumber: json["registrationNumber"],
-        engineCapacity: json["engineCapacity"],
-        yearOfManufacture: json["yearOfManufacture"]);
-  }
+  factory VehicleModel.fromJson(Map<String, dynamic> json) => VehicleModel(
+        MakeModel: json["MakeModel"],
+        Colour: json["Colour"],
+        Make: json["Make"],
+        FuelType: json["FuelType"],
+        Vrm: json["Vrm"],
+        YearOfManufacture: json["YearOfManufacture"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "MakeModel": MakeModel,
+        "Colour": Colour,
+        "Make": Make,
+        "FuelType": FuelType,
+        "Vrm": Vrm,
+        "YearOfManufacture": YearOfManufacture,
+      };
 }

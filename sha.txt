@@ -1,0 +1,13 @@
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Mon Feb 15 17:59:44 GMT 2021 until: Wed Feb 08 17:59:44 GMT 2051
+Certificate fingerprints:
+         SHA1: 69:DE:AB:EE:27:EF:9C:A7:E0:79:11:C6:0C:6E:6B:44:8E:C3:83:71
+         SHA256: E9:73:16:3E:79:81:AE:3D:CC:5C:CA:2D:57:30:10:81:CA:06:B6:50:B6:D5:5A:81:B8:D1:B9:1B:93:E3:97:32
+Signature algorithm name: SHA1withRSA (weak)
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
+
+Warning:
+The certificate uses the SHA1withRSA signature algorithm which is considered a security risk. This algorithm will be disabled in a future update.
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore C:\Users\Karanpreet.Dhillon\.android\debug.keystore -destkeystore C:\Users\Karanpreet.Dhillon\.android\debug.keystore -deststoretype pkcs12".

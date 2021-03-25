@@ -1,3 +1,4 @@
+import 'package:automotiveapp/screens/homedummy.dart';
 import 'package:automotiveapp/screens/welcomescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:automotiveapp/screens/Loginscreen.dart';
@@ -11,11 +12,9 @@ class Signupscreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.blue, Colors.blue[400]],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter),
-            image: DecorationImage(
-                image: AssetImage("images/1.png"), fit: BoxFit.cover)),
+                colors: [Colors.black, Colors.red, Colors.white],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)),
         child: Center(
           child: Column(
             children: <Widget>[
@@ -142,15 +141,13 @@ class CustomDialog extends StatelessWidget {
           SizedBox(height: 24.0),
           Align(
               alignment: Alignment.bottomRight,
-              child: RaisedButton(child:Text("Start Exploring ➔"),
-                  onPressed: () {
-                    Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => HomeScreen()));
-                    
-                  },
-                  ))
+              child: RaisedButton(
+                child: Text("Start Exploring ➔"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (ctx) => HomeDummy()));
+                },
+              ))
         ]),
       ),
       Positioned(

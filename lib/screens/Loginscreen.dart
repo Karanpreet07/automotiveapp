@@ -1,8 +1,6 @@
+import 'package:automotiveapp/screens/homedummy.dart';
 import 'package:automotiveapp/screens/signup.dart';
-import 'package:automotiveapp/screens/homescreen.dart';
 import 'package:flutter/material.dart';
-
-import 'homescreen.dart';
 
 class Loginscreen extends StatelessWidget {
   @override
@@ -12,11 +10,9 @@ class Loginscreen extends StatelessWidget {
         body: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [Colors.blue, Colors.blue[400]],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter),
-                image: DecorationImage(
-                    image: AssetImage("images/1.png"), fit: BoxFit.cover)),
+                    colors: [Colors.black, Colors.red, Colors.white],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)),
             child: Center(
               child: Column(
                 children: <Widget>[
@@ -96,9 +92,9 @@ class Loginscreen extends StatelessWidget {
                       child: RaisedButton(
                           onPressed: () {
                             Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => HomeScreen()));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => HomeDummy()));
                           },
                           color: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -177,6 +173,3 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
-
-
-

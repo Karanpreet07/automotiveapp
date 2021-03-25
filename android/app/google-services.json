@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "659861280345",
+    "project_id": "automotiveapp-db387",
+    "storage_bucket": "automotiveapp-db387.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659861280345:android:e36664bd5fcec5b639c348",
+        "android_client_info": {
+          "package_name": "com.example.automotiveapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659861280345-0af8gqcnkp3op6v6fv5r7oj8cbl4mril.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.automotiveapp",
+            "certificate_hash": "69deabee27ef9ca7e07911c60c6e6b448ec38371"
+          }
+        },
+        {
+          "client_id": "659861280345-74m0cr7m8fvrcb6buic1k4lfvnhud9cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1CxARXNaqsvhn5-uwAsnnuMdHjSfwRJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659861280345-74m0cr7m8fvrcb6buic1k4lfvnhud9cb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
