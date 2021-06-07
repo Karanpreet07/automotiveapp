@@ -1,7 +1,9 @@
+import 'package:automotiveapp/models/VehicleMotTax.dart';
+import 'package:automotiveapp/screens/vehiclehome.dart';
 import 'package:flutter/material.dart';
-import '../database.dart';
-import 'VehicleImageModel.dart';
-import 'VehicleModel.dart';
+import '../services/database.dart';
+import '../models/VehicleImageModel.dart';
+import '../models/VehicleModel.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -53,7 +55,7 @@ class SecondScreen extends StatelessWidget {
 
                       return Center(
                         child: Image.network(
-                          vehicleImage.ImageUrl, width: 500,
+                          vehicleImage.ImageUrl, width: 500, height: 200,
                           //scale: 4,
                         ),
                       );
@@ -97,11 +99,13 @@ class SecondScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              FutureBuilder<VehicleModel>(
-                  future: getVehicle(),
-                  builder: (context, snapshot) {
+              FutureBuilder(
+                  future: Future.wait([getVehicle(), getImage(), getMotTax()]),
+                  builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
                     if (snapshot.hasData) {
-                      final vehicle = snapshot.data;
+                      final vehicle = snapshot.data[0];
+                      final vehicleImage = snapshot.data[1];
+                      final VehicleMotTax = snapshot.data[2];
 
                       return Center(
                           child: Container(
@@ -110,34 +114,34 @@ class SecondScreen extends StatelessWidget {
                               padding: EdgeInsets.all(16.0),
                               child: RaisedButton(
                                   onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (ctx) => VehicleHome()));
+                                    // Navigator.of(context);
+
                                     createData(
-                                        vrm: vehicle.Vrm,
-                                        make: vehicle.Make,
-                                        makemodel: vehicle.MakeModel,
-                                        yearofmanufacture:
+                                        Vrm: vehicle.Vrm,
+                                        Make: vehicle.Make,
+                                        MakeModel: vehicle.MakeModel,
+                                        YearOfManufacture:
                                             vehicle.YearOfManufacture,
-                                        colour: vehicle.Colour,
-                                        fueltype: vehicle.FuelType);
+                                        Colour: vehicle.Colour,
+                                        FuelType: vehicle.FuelType,
+                                        Url: vehicleImage.ImageUrl,
+                                    NextMotDueDate: VehicleMotTax.NextMotDueDate,
+                                    VedExpiryDate:VehicleMotTax.VedExpiryDate
+                                    );
                                   },
                                   color: Colors.greenAccent[400],
                                   textColor: Colors.blue[900],
-                                  child: Text("YES?"))));
+                                  child: Text("LETS GO"))));
                     } else if (snapshot.hasError) {
                       return Text(snapshot.error.toString());
                     }
 
                     return CircularProgressIndicator();
-                  }),
-              Center(
-                  child: Container(
-                      height: 75,
-                      width: 250,
-                      padding: EdgeInsets.all(16.0),
-                      child: RaisedButton(
-                          onPressed: () {},
-                          color: Colors.greenAccent[400],
-                          textColor: Colors.blue[900],
-                          child: Text("NO?"))))
+                  })
             ]))));
   }
 
@@ -181,6 +185,29 @@ class SecondScreen extends StatelessWidget {
 
       return VehicleModel.fromJson(
           jsonVehicle["Response"]["DataItems"]["VehicleRegistration"]);
+    } else {
+      throw Exception();
+    }
+  }
+
+  Future<VehicleMotTax> getMotTax() async {
+    var queryParameters = {
+      "v": "2",
+      "api_nullitems": "1",
+      "auth_apikey": 'f538a039-52b5-48fd-adb2-94dfb69b307d',
+      'key_VRM': text,
+    };
+
+    var uri = Uri.https("uk1.ukvehicledata.co.uk",
+        "api/datapackage/MotHistoryAndTaxStatusData", queryParameters);
+
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      final jsonVehicle = jsonDecode(response.body);
+
+      return VehicleMotTax.fromJson(
+          jsonVehicle["Response"]["DataItems"]["VehicleStatus"]);
     } else {
       throw Exception();
     }

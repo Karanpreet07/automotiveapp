@@ -1,6 +1,7 @@
 import 'package:automotiveapp/screens/homescreen.dart';
+import 'package:automotiveapp/screens/map.dart';
 import 'package:automotiveapp/screens/myvehicle.dart';
-import 'package:automotiveapp/screens/signup.dart';
+
 import 'package:flutter/material.dart';
 
 class TabNavigatorRoutes {
@@ -20,7 +21,7 @@ class TabNavigator extends StatelessWidget {
       child = HomeScreen();
     else if (tabItem == "Page2")
       child = MyVehicle();
-    else if (tabItem == "Page3") child = Signupscreen();
+    else if (tabItem == "Page3") child = GarageMap();
 
     return Navigator(
       key: navigatorKey,

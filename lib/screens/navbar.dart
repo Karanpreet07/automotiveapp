@@ -66,12 +66,12 @@ class AppState extends State<App> {
           backgroundColor: Colors.white,
           items: [
             BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Home'),
-            ),
-            BottomNavigationBarItem(
               icon: new Icon(Icons.car_rental),
               title: new Text('My Vehicle'),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.person),
+              title: new Text('My Account'),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.map),

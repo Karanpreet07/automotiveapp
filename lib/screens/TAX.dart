@@ -2,19 +2,19 @@
 
 import 'package:flutter/material.dart';
 
-class Mot extends StatelessWidget {
+class Tax extends StatelessWidget {
   final String text;
-  final String text1;
+  final String text1; 
 
   // receive data from the FirstScreen as a parameter
-  Mot({Key key, @required this.text, this.text1}) : super(key: key);
+  Tax({Key key, @required this.text, this.text1}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('MOT'),
+        title: Text('Tax'),
         centerTitle: true,
         elevation: 0.0,
         leading: IconButton(
@@ -38,7 +38,7 @@ class Mot extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
               FlatButton(
                 child: Text(
-                  'What is an MOT?',
+                  'What is car Tax?',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   ),
@@ -52,7 +52,7 @@ class Mot extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
               FlatButton(
                 child: Text(
-                  'Your MOT?',
+                  'Your Tax?',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   ),
@@ -72,9 +72,9 @@ class Mot extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("What is an MOT?"),
+          title: Text("What is car tax?"),
           content: Text(
-              "The MOT test checks that your vehicle meets road safety and environmental standards. \n \nYou must get an MOT for your vehicle by either: \n \n-The third anniversary of its registration \n\n-The anniversary of its last MOT, if it’s over 3 years old"),
+              "You need to pay tax when the vehicle is first registered, this covers the vehicle for 12 months. \n \nYou’ll then pay vehicle tax every 6 or 12 months at a different rate."),
           actions: <Widget>[
             FlatButton(
               child: Text("OK"),
@@ -94,9 +94,9 @@ class Mot extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Your MOT?"),
+          title: Text("Your Tax?"),
           content: Text(
-              "Valid MOT: $text1. \n \n MOT expiry date: \n \n $text"),
+              "Valid tax : $text1. \n \nTax expire by : \n \n $text"),
           actions: <Widget>[
             FlatButton(
               child: Text("OK"),
