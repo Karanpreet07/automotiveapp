@@ -9,8 +9,8 @@ String vehicleToJson(List<VehicleMotTax> data) =>
 class VehicleMotTax {
   final String NextMotDueDate;
   final String VedExpiryDate;
-  final String VehicleHasCurrentMot;
-  final String VedCurrentlyValid;
+  final bool VehicleHasCurrentMot;
+  final bool VedCurrentlyValid;
 
   VehicleMotTax({this.NextMotDueDate, this.VedExpiryDate, this.VehicleHasCurrentMot, this.VedCurrentlyValid});
 

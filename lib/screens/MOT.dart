@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Mot extends StatelessWidget {
   final String text;
-  final String text1;
+  final bool text1;
 
   // receive data from the FirstScreen as a parameter
   Mot({Key key, @required this.text, this.text1}) : super(key: key);

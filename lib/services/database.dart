@@ -16,8 +16,8 @@ void createData(
     final String TransmissionType,
     final String NextMotDueDate,
     final String VedExpiryDate,
-    final String VehicleHasCurrentMot, 
-    final String VedCurrentlyValid
+    final bool VehicleHasCurrentMot, 
+    final bool VedCurrentlyValid
     }) async {
   //Firebase.initializeApp();
   CollectionReference cars = _db.collection("cars");

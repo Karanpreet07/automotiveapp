@@ -6,7 +6,7 @@ import '../models/VehicleImageModel.dart';
 import '../models/VehicleModel.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class SecondScreen extends StatelessWidget {
   final String text;
@@ -130,7 +130,9 @@ class SecondScreen extends StatelessWidget {
                                         FuelType: vehicle.FuelType,
                                         Url: vehicleImage.ImageUrl,
                                     NextMotDueDate: VehicleMotTax.NextMotDueDate,
-                                    VedExpiryDate:VehicleMotTax.VedExpiryDate
+                                    VedExpiryDate:VehicleMotTax.VedExpiryDate,
+                                    VedCurrentlyValid: VehicleMotTax.VedCurrentlyValid,
+                                    VehicleHasCurrentMot: VehicleMotTax.VehicleHasCurrentMot
                                     );
                                   },
                                   color: Colors.greenAccent[400],
